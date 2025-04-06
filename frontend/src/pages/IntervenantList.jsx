@@ -19,6 +19,12 @@ const IntervenantList = () => {
         const res = await fetch("http://localhost:3000/api/user/intervenants", {
           credentials: "include",
         });
+
+        if (res.status === 401) {
+          navigate("/otp-verify");
+          return;
+        }
+
         const data = await res.json();
         if (data.success) {
           setIntervenants(data.intervenants);

@@ -8,6 +8,7 @@ import Footer from "./partials/Footer";
 import UserInfo from "./pages/EtudiantDetails";
 import EtudiantLists from "./pages/EtudiantLists";
 import IntervenantList from "./pages/IntervenantList";
+import OtpVerify from "./pages/OtpVerify";
 
 function App() {
   const { user, loading } = useAuth();
@@ -44,12 +45,8 @@ function App() {
               )
             }
           />
-          <Route
-            path="/intervenant-list"
-            element={
-              user && user.role === "admin" ? <IntervenantList /> : <Login />
-            }
-          />
+          <Route path="/intervenant-list" element={<IntervenantList />} />
+          <Route path="/otp-verify" element={<OtpVerify />} />
         </Routes>
       </div>
       <Footer />
